@@ -2,6 +2,8 @@
 
 Small tool to monitor the health of your Auth0 AD/LDAP Connector
 
+![](https://cldup.com/ZNlm10-fKT.png)
+
 ## Configuration
 
 In the `config.json` file, set the following values:
