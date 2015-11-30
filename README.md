@@ -1,4 +1,5 @@
-# auth0-ldap-connector-health
+# Auth0 AD/LDAP Connector
+
 Small tool to monitor the health of your Auth0 AD/LDAP Connector
 
 ## Configuration
