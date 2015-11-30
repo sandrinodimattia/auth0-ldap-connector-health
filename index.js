@@ -15,7 +15,7 @@ const monitor = function() {
   authenticate(function(err, token) {
     if (err) {
       logger.error('Error authenticating:', err.message);
-      return setTimeout(monitor, 30000);
+      return next();
     }
 
     var monitorUrl = `https://${nconf.get('AUTH0_DOMAIN')}/api/connections/${nconf.get('AUTH0_CONNECTION')}/socket`;
@@ -26,14 +26,13 @@ const monitor = function() {
       else if (resp.statusCode === 404) logger.error('The connector is offline.');
       else if (resp.statusCode === 200) logger.info('The connector is online.');
       else logger.warning('Unexpected status code:', resp.statusCode);
-
-      next();
+      return next();
     });
   });
 };
 
 const next = function() {
-  setTimeout(monitor, 5000);
+  setTimeout(monitor, 30000);
 }
 
 // Start.
