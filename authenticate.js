@@ -9,7 +9,7 @@ let token = null;
 let lastLogin = null;
 
 module.exports = function(callback) {
-  if (!token || !lastLogin || moment(new Date()).diff(lastLogin, 'minutes') > 0) {
+  if (!token || !lastLogin || moment(new Date()).diff(lastLogin, 'minutes') > 60) {
     logger.info('Requesting access_token for Management API (v1).')
 
     var body = {
